@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8dcuuc1hxock"]
+
+[ext_resource type="Texture2D" uid="uid://dqpt7e7daky0d" path="res://assets/test/test_container.png" id="1_3krkh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp2i7"]
+size = Vector2(102, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n70ma"]
+size = Vector2(20, 116)
+
+[node name="BubbleContainer" type="StaticBody2D"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -65)
+shape = SubResource("RectangleShape2D_sp2i7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-60, 0)
+shape = SubResource("RectangleShape2D_n70ma")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(60, 0)
+shape = SubResource("RectangleShape2D_n70ma")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3krkh")
