@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bih1tkqxg5v75"]
+
+[ext_resource type="Texture2D" uid="uid://hfjmc3trnqkr" path="res://assets/test/sprites/bubble_test_0.png" id="1_chsup"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ahjp"]
+radius = 7.0
+
+[node name="Bubble" type="RigidBody2D"]
+gravity_scale = -0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_chsup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.94, 0.94)
+shape = SubResource("CircleShape2D_6ahjp")
