@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://criyht20o30ms"]
 
 [ext_resource type="PackedScene" uid="uid://b8dcuuc1hxock" path="res://scenes/bubble_container.tscn" id="1_780rq"]
-[ext_resource type="PackedScene" uid="uid://bih1tkqxg5v75" path="res://scenes/bubble.tscn" id="2_tp85p"]
+[ext_resource type="Script" path="res://scenes/bubble_manager.gd" id="2_hfnka"]
 [ext_resource type="Script" path="res://scenes/bubble_spawner.gd" id="3_4hb7g"]
 [ext_resource type="Texture2D" uid="uid://ni6b5fw653ec" path="res://icon.svg" id="4_tdi1p"]
 
@@ -10,19 +10,8 @@
 [node name="BubbleContainer" parent="." instance=ExtResource("1_780rq")]
 position = Vector2(161, 77)
 
-[node name="Bubbles" type="Node2D" parent="."]
-
-[node name="Bubble" parent="Bubbles" instance=ExtResource("2_tp85p")]
-position = Vector2(140, 92)
-
-[node name="Bubble2" parent="Bubbles" instance=ExtResource("2_tp85p")]
-position = Vector2(140, 121)
-
-[node name="Bubble3" parent="Bubbles" instance=ExtResource("2_tp85p")]
-position = Vector2(140, 121)
-
-[node name="Bubble4" parent="Bubbles" instance=ExtResource("2_tp85p")]
-position = Vector2(141, 137)
+[node name="BubbleManager" type="Node2D" parent="."]
+script = ExtResource("2_hfnka")
 
 [node name="BubbleSpawner" type="Node2D" parent="."]
 position = Vector2(160, 154)
@@ -35,4 +24,5 @@ texture = ExtResource("4_tdi1p")
 [node name="Timer" type="Timer" parent="BubbleSpawner"]
 wait_time = 0.25
 
+[connection signal="bubble_created" from="BubbleSpawner" to="BubbleManager" method="_on_bubble_spawner_bubble_created"]
 [connection signal="timeout" from="BubbleSpawner/Timer" to="BubbleSpawner" method="_on_timer_timeout"]
